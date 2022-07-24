@@ -1,0 +1,28 @@
+
+
+ <tr class="text-secondary" >
+
+        <th scope="row" class="fw-normal py-3">
+        <i class="bi bi-check-circle  text-success "></i>  
+        <%= link_to post.title, post_path(post) , class: " fst-italic col-6 "%> 
+        </th>
+
+        <th class="py-3">
+        <% if post.priority == 1 %>
+               <i class="bi bi-arrow-up text-green"></i>  
+                LOW       
+        <% else %>
+            <% if post.priority == 2 %>
+               <i class="bi bi-arrow-up text-yelow"></i>  
+               MEDIUM
+            <% else %>
+                <i class="bi bi-arrow-up text-danger"></i>  
+                HIGH
+            <% end %>
+        <% end %>
+        </th>
+
+        <th class="py-3">                 
+            <%= post.date.to_date.to_formatted_s(:long_ordinal) %>              
+        <th>
+</tr>        

@@ -1,0 +1,22 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+ body {
+    background: #f3f3f4;
+  }
+
+ text {
+
+    color: #272D2D;
+  }
+
+  .my-btn-color {
+
+    background-color: #F1F0EA;
+  }
+  
+  .sm-form-mw {
+    max-width: 250px;
+}

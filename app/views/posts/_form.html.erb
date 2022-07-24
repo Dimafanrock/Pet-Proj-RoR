@@ -1,0 +1,81 @@
+<br>
+<%= form_for @post do |f| %> 
+    <div class='container  mb-5' style="max-width: 768px;"> 
+      <h4 class="mt-5"> New Goal </h4>
+      <br>
+
+      <div class="me-card card-body card">
+          
+          <div> 
+            <label class="form-label" for="post_title">      
+              <%= f.label :title %> 
+            </label> 
+            <%= f.text_field :title , class:"form-control"%>
+            <div style="color: red">
+              <% if @post.errors.include?(:title) %>
+                <% @post.errors.full_messages_for(:title).each do |error_message| %>
+                  <%= error_message %>.
+                <% end %>
+              <% end %>
+            </div> 
+          </div> 
+    
+
+          <div>
+            <label class="form-label mt-3" for="post_body"><%= f.label :body %></label>
+            <%= f.text_area :body, class: "form-control", cols: 30, rows: 10 %>            
+            <div style="color: red">
+              <% if @post.errors.include?(:body) %>
+                <% @post.errors.full_messages_for(:body).each do |error_message| %>
+                  <%= error_message %>.
+                <% end %>
+              <% end %>
+            </div> 
+          </div> 
+      
+          <div>
+            <label class="form-label mt-3" for="post_priority">
+              <%= f.label :priority %>
+            </label>                      
+            
+            <% if @post.priority %>
+              <%= f.select :priority,     [["LOW","1"],
+                                          ["MEDIUM","2"], 
+                                          ["HIGH","3"]],{}, 
+                                          {class: "form-select smform-mw "} %>
+              <% else %>
+                  <%= f.select :priority, [["LOW","1"],
+                                          ["MEDIUM","2"],
+                                          ["HIGH","3"]], {select: 2},
+                                          {class: " form-select sm-form-mw"} %>
+              <% end %> 
+          </div>    
+          
+          <div>
+              <label class="form-label mt-3" for="post_date">
+                <%= f.label :date_field, "Date", class: "mt-1" %>
+              </label>          
+              <%= f.date_field :date , class:" form-select sm-form-mw "   %> 
+              <div style="color: red">
+                <% if @post.errors.include?(:date) %>
+                  <% @post.errors.full_messages_for(:date).each do |error_message| %>
+                    <%= error_message %>.
+                  <% end %>
+                <% end %>
+            </div>
+          </div>         
+        <br>
+      </div>
+  </div>
+
+
+  <footer class="fixed-bottom">
+    <div class="text-end p-3 bg-white ">
+      <div class="container" style="max-width: 768px;" >        
+        <a class= 'btn btn-sm btn-secondary px-4' href="<%= posts_path(@post) %>">Cancel</a>
+        <input type="submit" name="comit" value="Create" class="m btn btn-sm btn-primary px-4" 
+         data-turbo="false" data-disable-with="Create">
+      </div>
+    </div>   
+  </footer>
+<% end %>

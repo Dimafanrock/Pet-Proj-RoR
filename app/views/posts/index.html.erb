@@ -1,0 +1,38 @@
+<br>
+<div class="container  px-2 mt-4 font-sm "  style="max-width: 1000px;">
+  <h1>Goals</h1>
+  <br>
+
+  <nav class="navbar navbar-expand-lg  rounded-3 bg-white h-auto" >
+    <div class="container-fluid ">    
+      <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+        <div class="navbar-nav">        
+          <a class="nav-link me-5" href="">All <%= @posts.count %> </a>
+          <a class="nav-link me-5" href="">Done <%= @posts.count %> </a>
+          <a class="nav-link me-5" href="">Inconplited <%= @posts.count %></a>        
+        </div>
+      </div>
+      <a class="btn  btn-outline-secondary  pull-right "  href="<%= new_post_path %>" role="button">New Goal</a>
+    </div>
+  </nav>
+  <br>
+
+<div class="d-none d-sm-block ">
+  <table class="table table-hover show-border bg-white mt-3" >        
+        <thead >
+          <tr class="text-secondary">
+            <th scope="col" class='col-8 fw-normal py-3'>Name</th>
+            <th scope="col" class='fw-normal py-3' >Priority</th>
+            <th scope="col" class='fw-normal py-3'>Dedline date</th> 
+          </tr>
+        </thead>
+
+        <tbody>  
+          <%= render @posts  %>
+        </tbody>
+        
+  </table>
+</div>
+
+
+</div> 
