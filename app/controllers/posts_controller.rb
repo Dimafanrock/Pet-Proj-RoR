@@ -2,11 +2,19 @@ class PostsController < ApplicationController
     before_action :set_post, only: [:show, :edit,  :destroy, :completed]
   
     def index
-      @posts = Post.all
+      @posts = case params[:filter]
+              when 'Done'
+                Post.where(completed: true)
+              when  'Inconplited'
+                Post.where(completed: false)
+              else
+                Post.all        
+              end.order(date: :desc, priority: :asc, title: :asc  )
     end
   
     def show
     end
+    
   
     def new
       @post = Post.new
@@ -26,13 +34,12 @@ class PostsController < ApplicationController
 
     
     def update
-      @post = Post.find(params[:id])
-      
+      @post = Post.find(params[:id])      
       if @post.update(post_params)
-        redirect_to @post,  alert: 'Goal successful update!' 
+        redirect_to @post,  alert: 'Goal successful update!'
         
       else
-        render :edit , unprocessable_entity
+        render :edit 
       end
     end
   

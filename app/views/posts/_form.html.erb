@@ -1,4 +1,4 @@
-<br>
+
 <%= form_for @post do |f| %> 
     <div class='container  mb-5' style="max-width: 768px;"> 
       <h4 class="mt-5"> New Goal </h4>
@@ -69,11 +69,15 @@
   </div>
 
 
+
+
+
+
   <footer class="fixed-bottom">
     <div class="text-end p-3 bg-white ">
-      <div class="container" style="max-width: 768px;" >        
-        <a class= 'btn btn-sm btn-secondary px-4' href="<%= posts_path(@post) %>">Cancel</a>
-        <input type="submit" name="comit" value="Create" class="m btn btn-sm btn-primary px-4" 
+      <div class="container" style="max-width: 768px;" > 
+        <a class="btn btn-sm btn-secondary my-cancel-btn-style px-4" href="<%= posts_path %>" role="button" > Cancel </a> 
+        <input type="submit" name="comit" value="Save" class="m btn btn-sm btn-primary px-4" 
          data-turbo="false" data-disable-with="Create">
       </div>
     </div>   

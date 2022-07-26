@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-lg-7">
+        <div class="container col-10">  
+            <br> 
+            <br> 
+            <br> 
+            <h1 class="text-center">Self-development goals tracker<h1>
+            <br> 
+            <h4>BeFocused is a convenient centralized personal space for any students, 
+                lerners or any other interested in self-education and self-development people      
+            </h4>
+            <p>Moreover, setting goals in the right way can help you achieve them! Each goal should be SMART, and here'swhat it means:
+            </p>
+            <p>Specific: Well defined, clear and unambiguous
+            </p>
+            <p>Measurable: With specific criteria that measure your progress towards the acccomplishment of the goal
+            </p>
+            <p>Achievable: Attainable and not impossible to achieve
+            </p>
+             <p>Realistic: Within reach, realistic, and relevant to your life purpose
+            </p>
+             <p>Timely: With a clearly defined timeline, including a starting date and a target date. The purpose is to create urgency.
+            </p>
+             <% if Post.count > 0  %>
+             <a class="btn btn-primary btn-lg my-border" href="<%= posts_path %>"> Back to Goals </a>
+             <% else %>
+             <a class="btn btn-primary btn-lg my-border" href="/posts/new" > Get Started </a>
+             <% end %>             
+        </div>
+    </div>
+</div>

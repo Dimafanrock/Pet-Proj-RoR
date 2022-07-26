@@ -7,9 +7,9 @@
     <div class="container-fluid ">    
       <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
         <div class="navbar-nav">        
-          <a class="nav-link me-5" href="">All  </a>
-          <a class="nav-link me-5" href="">Done  </a>
-          <a class="nav-link me-5" href="">Inconplited </a>        
+          <a class="nav-link me-5" href="<%= {filter: ' ' }   %>"> All <%= @posts.count %> </a>
+          <a class="nav-link me-5" href="<%= {filter: 'Done'}   %> "> Done <%= @posts.where(completed: true).count %>  </a>
+          <a class="nav-link me-5" href="<%= {filter: 'Inconplited'} %>"> Inconplited <%= @posts.where(completed: false).count %> </a>        
         </div>
       </div>
       <a class="btn  btn-outline-secondary  pull-right "  href="<%= new_post_path %>" role="button">New Goal</a>
@@ -27,8 +27,8 @@
           </tr>
         </thead>
 
-        <tbody>             
-          <%= render @posts  %>
+        <tbody>  
+          <%= render @posts %>
         </tbody>
         
   </table>
